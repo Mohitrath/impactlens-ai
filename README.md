@@ -38,6 +38,12 @@ CLOUDINARY_ANALYSIS_MODEL=captioning
 
 The upload page uses a server-generated signature so the Cloudinary API secret remains server-side. The selected Cloudinary Analyze model must be enabled in your account.
 
+## Vercel deployment
+
+The repository includes all source files required by the Next.js production build, including `components/uploader.tsx` and `lib/demo-data.ts`.
+
+Configure the Cloudinary variables in Vercel under Project Settings → Environment Variables, then redeploy from the `main` branch.
+
 ## Demo flow
 
 1. Dashboard
