@@ -41,6 +41,248 @@ ImpactLens is designed for real-world sustainability evidence such as renewable 
   <img src="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=700&q=80" width="31%" alt="Environmental restoration"/>
 </p>
 
+
+---
+
+## 🧭 Quick Navigation
+
+**[Overview](#-impactlens-ai)** · **[Experience](#-product-experience)** · **[Features](#-core-features)** · **[Architecture](#-architecture)** · **[Setup](#️-getting-started)** · **[Demo](#-recommended-demo)** · **[Roadmap](#-roadmap)**
+
+---
+
+## 🎨 Product Experience
+
+ImpactLens is designed as an **evidence command center**, not a traditional file manager.
+
+| Experience | What it does |
+|---|---|
+| 🟢 **Live Dashboard** | Gives teams an at-a-glance view of evidence volume, projects, AI insights, and traceability |
+| 🗂️ **Project Workspaces** | Groups media around real initiatives instead of isolated files |
+| 🧠 **AI Evidence Layer** | Turns visual content into searchable signals and metadata |
+| 🗺️ **Context View** | Connects evidence to location, activity, and timeline |
+| 🔍 **Semantic Discovery** | Finds relevant evidence from natural-language intent |
+| 🆚 **Change Studio** | Makes before/after comparisons easy to understand |
+| 📑 **Story Builder** | Converts evidence into impact-ready narratives and reports |
+
+### Signature UI Pattern
+
+```text
+┌──────────────────────────────────────────────────────────────┐
+│  IMPACTLENS                              AI EVIDENCE CENTER  │
+├───────────────┬──────────────────────────────────────────────┤
+│ Dashboard     │  PROJECT IMPACT                               │
+│ Projects      │  ┌────────┐ ┌────────┐ ┌────────┐            │
+│ Media         │  │ 1,284  │ │   24   │ │  397   │            │
+│ Upload        │  │ Assets │ │Projects│ │Insights│            │
+│ AI Search     │  └────────┘ └────────┘ └────────┘            │
+│ Before/After  │                                               │
+│ Reports       │  Recent Evidence  →  AI Signals →  Actions   │
+│ Activity      │                                               │
+└───────────────┴──────────────────────────────────────────────┘
+```
+
+---
+
+## ⚡ What Makes ImpactLens Different?
+
+### 01 — Evidence-First AI
+
+Instead of generating isolated AI text, the product keeps the **original media asset at the center of the workflow**.
+
+### 02 — Storytelling + Intelligence
+
+The same evidence can move from:
+
+**raw upload → AI understanding → project context → comparison → report**
+
+without leaving the platform.
+
+### 03 — Traceability by Design
+
+Every insight is intended to remain connected to its source media so teams can inspect the evidence behind a conclusion.
+
+### 04 — Built for Visual Programs
+
+The experience is optimized around image/video-heavy programs such as restoration, infrastructure, water access, renewable energy, and community development.
+
+---
+
+## 📡 End-to-End Intelligence Pipeline
+
+```text
+┌─────────────┐
+│ FIELD TEAM  │
+└──────┬──────┘
+       │ photos / videos
+       ▼
+┌─────────────┐
+│ CLOUDINARY  │──────► original asset + delivery URL
+└──────┬──────┘
+       ▼
+┌─────────────┐
+│ AI ANALYSIS │──────► captions / tags / visual signals
+└──────┬──────┘
+       ▼
+┌─────────────┐
+│ EVIDENCE DB │──────► project / activity / location / time
+└──────┬──────┘
+       ▼
+┌─────────────────────┐
+│ IMPACT WORKSPACE    │
+│ search • compare    │
+│ review • report     │
+└──────┬──────────────┘
+       ▼
+┌─────────────────────┐
+│ DECISION-READY      │
+│ IMPACT STORY        │
+└─────────────────────┘
+```
+
+---
+
+## 🧩 Feature Modules
+
+### 🟩 Evidence Inbox
+A focused landing zone for newly uploaded field media, processing status, and AI enrichment.
+
+### 🟦 Project Intelligence
+Project-level views combine media, milestones, locations, activities, and generated insights.
+
+### 🟪 Semantic Search
+Natural-language discovery helps users ask for evidence by **meaning**, not just filename.
+
+### 🟨 Change Detection Workspace
+A visual comparison surface for understanding how a site, project, or activity changes over time.
+
+### 🟥 Impact Story Builder
+A reporting layer designed to turn evidence into concise, presentation-ready impact narratives.
+
+---
+
+## 📊 Impact Metrics
+
+The interface is structured around metrics that matter to evidence teams:
+
+| Metric | Meaning |
+|---|---|
+| **Assets Analyzed** | Volume of media processed by the platform |
+| **Active Projects** | Current initiatives represented in the workspace |
+| **AI Insights** | Generated observations, tags, captions, or signals |
+| **Traceability** | Share of insights that remain linked to source evidence |
+| **Evidence Coverage** | Media available across projects, locations, and timelines |
+| **Change Signals** | Detected visual differences between project stages |
+
+> These are product concepts for the dashboard; production values should come from the application's persistent data layer.
+
+---
+
+## 🔐 Security & Trust
+
+ImpactLens follows a security-conscious media workflow:
+
+- 🔒 Cloudinary API secrets stay on the server.
+- 🪪 Upload signatures are generated by a Next.js server route.
+- 🌐 Browser uploads go directly to Cloudinary after signing.
+- 🧾 Original asset identifiers can be retained for traceability.
+- 🚫 Secrets should never be committed to GitHub.
+- 🧱 Production deployments should add authentication, authorization, rate limiting, and persistent audit logs.
+
+---
+
+## 🧪 Demo Storyline
+
+For a strong hackathon presentation, tell one continuous story:
+
+```text
+PROBLEM
+  ↓
+"Teams have thousands of field photos but cannot quickly find
+the evidence they need."
+  ↓
+UPLOAD
+  ↓
+"Upload a project photo/video."
+  ↓
+UNDERSTAND
+  ↓
+"AI extracts useful visual context."
+  ↓
+ORGANIZE
+  ↓
+"Evidence is connected to a project and timeline."
+  ↓
+DISCOVER
+  ↓
+"Ask for the evidence you need in natural language."
+  ↓
+COMPARE
+  ↓
+"Show how the project changed."
+  ↓
+REPORT
+  ↓
+"Turn the evidence into an impact story."
+```
+
+---
+
+## 💡 Example AI Queries
+
+Try queries such as:
+
+- `Show solar infrastructure installed after the baseline survey.`
+- `Find water-access evidence from the Kheri project.`
+- `Show restoration activity near wetlands.`
+- `Find before-and-after images for this project.`
+- `Show community infrastructure completed this quarter.`
+- `Find images containing visible construction progress.`
+
+---
+
+## 🏗️ Production-Ready Expansion
+
+The current prototype can evolve into a larger platform by adding:
+
+**Data Layer**
+- PostgreSQL + Prisma
+- Asset/project relationships
+- Persistent AI-analysis records
+- Audit history
+
+**Intelligence Layer**
+- Embeddings + vector retrieval
+- Project clustering
+- Automatic activity classification
+- Timeline inference
+- Multi-modal search
+
+**Operations Layer**
+- Organizations and teams
+- Role-based permissions
+- Processing queues
+- Batch ingestion
+- Observability and failure recovery
+
+**Reporting Layer**
+- PDF generation
+- Branded reports
+- Executive dashboards
+- Shareable evidence links
+- Campaign-ready content generation
+
+---
+
+## 🧱 Design Principles
+
+> **Evidence before narrative.**  
+> **Context before conclusions.**  
+> **Traceability before automation.**  
+> **Visual clarity before complexity.**
+
+These principles shape the product's interface and data workflow.
+
+
 ---
 
 ## ✨ Why ImpactLens?
