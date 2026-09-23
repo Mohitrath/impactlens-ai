@@ -30,7 +30,7 @@ export default function SearchPage(){
     <div className="mediaGrid section">
       {results.map(m => (
         <Link
-          href={`/projects/${encodeURIComponent(m.project)}`}
+          href={`/projects/view?project=${encodeURIComponent(m.project)}`}
           className="card mediaCard"
           key={m.id}
           style={{textDecoration:"none",color:"inherit",display:"block"}}
