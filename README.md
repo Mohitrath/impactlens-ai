@@ -14,6 +14,26 @@ Built for **Code Cubicle 6.0 — Cloudinary Problem Statement 02**.
 ---
 
 ## 🖥️ Product Screenshots
+## ✨ Premium Interface Preview
+
+The latest ImpactLens interface uses a **premium AI command-center aesthetic**: obsidian surfaces, emerald illumination, glassmorphism navigation, evidence cards, AI insights, project intelligence, and an evidence assistant.
+
+<p align="center">
+  <img src="./docs/impactlens-dashboard.svg" alt="ImpactLens AI premium dashboard interface" width="100%"/>
+</p>
+
+### Interface Highlights
+
+- 🌑 Obsidian + emerald premium visual system
+- 🧊 Glass-style workspace navigation
+- 🤖 AI-ready Evidence Engine status
+- 📊 High-density impact intelligence cards
+- 🖼️ Cinematic evidence/media gallery
+- 🗺️ Global impact overview
+- 🧠 AI Insights and evidence signals
+- 💬 Ask ImpactLens AI assistant surface
+- ⚡ Responsive layout with polished hover states
+
 
 ### Impact Intelligence Dashboard
 
