@@ -411,6 +411,37 @@ impactlens-ai/
 
 ---
 
+## 🔴 Live Data Mode
+
+ImpactLens is now wired to use **Cloudinary as the live media data source** instead of relying only on hard-coded demo cards.
+
+When the Cloudinary credentials are configured, the application can:
+
+- Load real image/video assets from Cloudinary
+- Derive projects from uploaded asset context
+- Search live evidence, including Cloudinary visual search when enabled
+- Open individual real assets by Cloudinary asset ID
+- Persist project/location/activity/tags during upload
+- Persist AI analysis metadata back to Cloudinary context
+- Build before/after comparisons from real assets
+- Generate downloadable project reports from live evidence
+- Build the activity feed from real asset creation timestamps
+
+Without credentials, the UI intentionally falls back to demo data so the interface remains usable.
+
+### Required Vercel environment variables
+
+```env
+NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME=...
+CLOUDINARY_API_KEY=...
+CLOUDINARY_API_SECRET=...
+CLOUDINARY_ANALYSIS_MODEL=captioning
+```
+
+> Never commit `CLOUDINARY_API_SECRET` to GitHub. Add it through Vercel Project Settings → Environment Variables.
+
+---
+
 ## 🔐 Cloudinary Integration
 
 ImpactLens uses a **server-generated signed upload flow**:
@@ -440,6 +471,22 @@ ImpactLens
 ```
 
 The Cloudinary API secret remains server-side and is never exposed to the browser.
+
+---
+
+## 🧩 Live Feature Map
+
+| Feature | Live data source | Action |
+|---|---|---|
+| Dashboard | Cloudinary resources | Metrics + recent evidence |
+| Projects | Asset context | Open project workspace |
+| Media Library | Cloudinary resources | Search + open asset |
+| Upload | Cloudinary signed upload | Store project metadata |
+| AI Search | Cloudinary visual search / metadata fallback | Natural-language discovery |
+| Before / After | Cloudinary assets | Select real evidence pair |
+| Impact Reports | Cloudinary asset metadata | Generate/download Markdown report |
+| Activity | Cloudinary creation timestamps | Live evidence timeline |
+| Evidence Detail | Cloudinary asset ID | Inspect original + context |
 
 ---
 
