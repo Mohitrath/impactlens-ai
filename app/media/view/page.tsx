@@ -29,5 +29,6 @@ export default async function MediaView({searchParams}:{searchParams:Promise<{id
         <pre className="jsonBox">{JSON.stringify(asset.metadata,null,2)}</pre>
       </div>
     </div>
+    <EvidenceAsk assetId={asset.asset_id} />
   </>;
 }
