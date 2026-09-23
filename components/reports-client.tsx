@@ -1,0 +1,8 @@
+"use client";
+import { useState } from "react";
+import { Download, FileText, Sparkles, Loader2 } from "lucide-react";
+export default function ReportsClient({items}:{items:any[]}){
+ const projects=Array.from(new Set(items.map(x=>x.project)));const [project,setProject]=useState(projects[0]||"");const [busy,setBusy]=useState(false);
+ async function generate(){setBusy(true);try{const r=await fetch("/api/reports",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({project,items})});const d=await r.json();if(!r.ok)throw new Error(d.error||"Report generation failed");const blob=new Blob([d.markdown],{type:"text/markdown"});const url=URL.createObjectURL(blob);const a=document.createElement("a");a.href=url;a.download=`${project.replace(/[^a-z0-9]+/gi,"-").toLowerCase()}-impact-report.md`;a.click();URL.revokeObjectURL(url);}finally{setBusy(false)}}
+ return <><div className="card"><div className="formGrid"><label>Project<select className="search" value={project} onChange={e=>setProject(e.target.value)}>{projects.map(p=><option key={p}>{p}</option>)}</select></label><div style={{display:"flex",alignItems:"end"}}><button className="btn primary" onClick={generate} disabled={busy}>{busy?<Loader2 className="spin" size={15}/>:<Sparkles size={15}/>} Generate & download report</button></div></div></div><div className="grid3 section">{["Executive Summary","Evidence Highlights","Campaign Copy"].map(x=><div className="card" key={x}><FileText color="#63e6a3"/><h2 style={{marginTop:14}}>{x}</h2><p className="muted">Generated from the selected project's real Cloudinary evidence and metadata.</p></div>)}</div></>;
+}
