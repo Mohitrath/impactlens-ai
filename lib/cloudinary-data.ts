@@ -180,6 +180,51 @@ export async function searchCloudinaryMedia(query: string): Promise<ImpactMedia[
     .slice(0, 30);
 }
 
+export async function analyzeCloudinaryAsset(
+  assetId: string,
+  prompts: string[] = [],
+  model = "ai_vision_general"
+) {
+  const c = cloud();
+  if (!c.name || !c.key || !c.secret || !assetId) {
+    throw new Error("Cloudinary AI configuration or asset ID is missing.");
+  }
+
+  const endpoint = `https://api.cloudinary.com/v2/analysis/${c.name}/analyze/${model}`;
+  const response = await fetch(endpoint, {
+    method: "POST",
+    headers: {
+      Authorization: authHeader(),
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      source: { asset_id: assetId },
+      ...(prompts.length ? { prompts: prompts.slice(0, 10) } : {}),
+    }),
+    cache: "no-store",
+  });
+
+  const data = await response.json().catch(() => ({}));
+  if (!response.ok) {
+    throw new Error(
+      data?.error?.message ||
+        "Cloudinary AI analysis failed. Enable the required AI add-on."
+    );
+  }
+  return data;
+}
+
+export function analysisText(data: any): string {
+  const responses = data?.data?.analysis?.responses;
+  if (Array.isArray(responses)) {
+    return responses
+      .map((item: any) => item?.value)
+      .filter(Boolean)
+      .join("\n");
+  }
+  return String(data?.data?.analysis?.caption || data?.data?.analysis?.description || "");
+}
+
 export async function updateCloudinaryContext(
   assetId: string,
   context: Record<string, string>
