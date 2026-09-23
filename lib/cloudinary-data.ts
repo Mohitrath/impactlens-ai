@@ -64,7 +64,7 @@ function normalize(r: CloudinaryResource): ImpactMedia {
         year: "numeric",
       })
     : "Unknown date";
-  const score = Number(context.ai_confidence || 92);
+  const score = Number(context.ai_confidence || 0);
 
   return {
     ...r,
