@@ -1,0 +1,8 @@
+export const media = [
+  {id:"m1", title:"Community water project", project:"Water Access — Kheri", type:"Image", date:"12 Sep 2026", tags:["water","infrastructure","community"], location:"Kheri, India", score:96, src:"https://images.unsplash.com/photo-1547683905-f686c993aae5?auto=format&fit=crop&w=1200&q=80"},
+  {id:"m2", title:"Restored wetland", project:"Wetland Restoration", type:"Image", date:"09 Sep 2026", tags:["wetland","restoration","environment"], location:"Odisha, India", score:91, src:"https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80"},
+  {id:"m3", title:"Solar installation", project:"Solar Schools Initiative", type:"Image", date:"05 Sep 2026", tags:["solar","school","energy"], location:"Rajasthan, India", score:94, src:"https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1200&q=80"},
+  {id:"m4", title:"Tree planting drive", project:"Green Corridor", type:"Image", date:"01 Sep 2026", tags:["trees","community","climate"], location:"Pune, India", score:88, src:"https://images.unsplash.com/photo-1497250681960-ef046c08a56e?auto=format&fit=crop&w=1200&q=80"},
+  {id:"m5", title:"School renovation", project:"Safe Schools", type:"Image", date:"27 Aug 2026", tags:["school","construction","children"], location:"Bihar, India", score:90, src:"https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1200&q=80"},
+  {id:"m6", title:"Mangrove monitoring", project:"Coastal Resilience", type:"Image", date:"22 Aug 2026", tags:["mangrove","coastal","monitoring"], location:"Kerala, India", score:93, src:"https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80"}
+];
