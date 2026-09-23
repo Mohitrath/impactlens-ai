@@ -12,7 +12,7 @@ export default async function MediaView({searchParams}:{searchParams:Promise<{id
       <a className="btn primary" href={asset.src} target="_blank" rel="noreferrer"><ExternalLink size={15}/> Open original</a>
     </div>
     <div className="detailGrid">
-      <div className="card detailHero"><img src={asset.src} alt={asset.title}/></div>
+      <div className="card detailHero">{asset.resource_type==="video"?<video src={asset.src} controls playsInline style={{width:"100%",borderRadius:18}}/>:<img src={asset.src} alt={asset.title}/>}</div>
       <div className="card">
         <div className="eyebrow">Asset intelligence</div>
         <h2 style={{marginTop:8}}>{asset.score}% evidence confidence</h2>
