@@ -6,11 +6,40 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?logo=typescript)](https://www.typescriptlang.org/)
 [![Cloudinary](https://img.shields.io/badge/Cloudinary-Media%20Intelligence-3448C5?logo=cloudinary)](https://cloudinary.com/)
 [![Vercel](https://img.shields.io/badge/Vercel-Deploy-black?logo=vercel)](https://vercel.com/)
-[![License](https://img.shields.io/badge/License-MIT-green.svg)](#license)
 
-ImpactLens AI transforms large collections of field photos and videos into **searchable, traceable, AI-analyzed evidence** for NGOs, governments, sustainability teams, and impact-driven organizations.
+ImpactLens AI transforms field photos and videos into **searchable, traceable, AI-analyzed evidence** for NGOs, governments, sustainability teams, and impact-driven organizations.
 
 Built for **Code Cubicle 6.0 — Cloudinary Problem Statement 02**.
+
+---
+
+## 🖥️ Product Screenshots
+
+### Impact Intelligence Dashboard
+
+<p align="center">
+  <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1200&q=80" alt="Sustainability and renewable-energy evidence" width="900"/>
+</p>
+
+### Project & Evidence Workspace
+
+<p align="center">
+  <img src="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1200&q=80" alt="Environmental restoration evidence" width="900"/>
+</p>
+
+> The repository's UI is designed around the same visual evidence workflow shown in the dashboard and project screens: projects, media, locations, timelines, AI insights, and impact reporting.
+
+---
+
+## 🌍 Visual Evidence Gallery
+
+ImpactLens is designed for real-world sustainability evidence such as renewable energy, environmental restoration, water access, infrastructure, and community programs.
+
+<p align="center">
+  <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=700&q=80" width="31%" alt="Solar energy"/>
+  <img src="https://images.unsplash.com/photo-1547683905-f686c993aae5?auto=format&fit=crop&w=700&q=80" width="31%" alt="Water and flood evidence"/>
+  <img src="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=700&q=80" width="31%" alt="Environmental restoration"/>
+</p>
 
 ---
 
@@ -18,7 +47,7 @@ Built for **Code Cubicle 6.0 — Cloudinary Problem Statement 02**.
 
 Field teams continuously capture photos and videos, but raw media is difficult to organize, search, compare, and convert into meaningful impact evidence.
 
-**ImpactLens AI creates a complete workflow:**
+**ImpactLens creates a complete workflow:**
 
 ```
 Field Media
@@ -49,14 +78,7 @@ Upload project photos and videos through a Cloudinary-backed pipeline with secur
 Analyze uploaded assets using Cloudinary's analysis capabilities to extract useful visual information and generate AI-assisted metadata.
 
 ### 🏷️ Smart Metadata & Organization
-Organize evidence around:
-
-- Projects
-- Activities
-- Locations
-- Timelines
-- Visual signals
-- AI-generated metadata
+Organize evidence around projects, activities, locations, timelines, visual signals, and AI-generated metadata.
 
 ### 🔎 AI-Powered Search
 Search the media library using natural-language concepts instead of relying only on filenames or folders.
@@ -68,28 +90,14 @@ Example:
 ### 🆚 Before / After Impact Analyzer
 Compare project evidence across time and surface measurable visual changes.
 
-This is one of the platform's key impact-evidence workflows.
-
 ### 📊 Impact Reports
-Turn analyzed media into presentation-ready impact summaries containing:
-
-- Key observations
-- Visual evidence
-- Project metrics
-- Before/after comparisons
-- Source traceability
+Turn analyzed media into presentation-ready impact summaries containing observations, visual evidence, project metrics, before/after comparisons, and source traceability.
 
 ### 🔗 Traceable Evidence
-Maintain a connection between generated insights and the original media assets, supporting transparent evidence workflows.
+Maintain a connection between generated insights and original media assets.
 
 ### 📈 Impact Dashboard
-A centralized dashboard provides visibility into:
-
-- Assets analyzed
-- Active projects
-- AI insights
-- Evidence traceability
-- Recent activity
+A centralized dashboard provides visibility into assets analyzed, active projects, AI insights, evidence traceability, and recent activity.
 
 ---
 
@@ -133,17 +141,11 @@ flowchart LR
 
 ```
 impactlens-ai/
-│
 ├── app/
 │   ├── api/
-│   │   ├── analyze/
-│   │   │   └── route.ts
-│   │   ├── cloudinary/
-│   │   │   └── sign/
-│   │   │       └── route.ts
-│   │   └── search/
-│   │       └── route.ts
-│   │
+│   │   ├── analyze/route.ts
+│   │   ├── cloudinary/sign/route.ts
+│   │   └── search/route.ts
 │   ├── dashboard/
 │   ├── media/
 │   ├── projects/
@@ -155,13 +157,10 @@ impactlens-ai/
 │   ├── page.tsx
 │   ├── layout.tsx
 │   └── globals.css
-│
 ├── components/
 │   └── uploader.tsx
-│
 ├── lib/
 │   └── demo-data.ts
-│
 ├── .env.example
 ├── next.config.ts
 ├── package.json
@@ -172,9 +171,7 @@ impactlens-ai/
 
 ## 🔐 Cloudinary Integration
 
-ImpactLens uses a **server-generated signed upload flow**.
-
-### Upload flow
+ImpactLens uses a **server-generated signed upload flow**:
 
 ```text
 Browser
@@ -213,13 +210,13 @@ git clone https://github.com/Mohitrath/impactlens-ai.git
 cd impactlens-ai
 ```
 
-### 2. Install dependencies
+### 2. Install
 
 ```bash
 npm install
 ```
 
-### 3. Configure environment variables
+### 3. Configure Cloudinary
 
 Create `.env.local`:
 
@@ -230,19 +227,15 @@ CLOUDINARY_API_SECRET=your_api_secret
 CLOUDINARY_ANALYSIS_MODEL=captioning
 ```
 
-### 4. Start development server
+### 4. Run
 
 ```bash
 npm run dev
 ```
 
-Open:
+Open `http://localhost:3000`.
 
-```
-http://localhost:3000
-```
-
-### 5. Production build
+### 5. Production
 
 ```bash
 npm run build
@@ -251,15 +244,15 @@ npm start
 
 ---
 
-## ☁️ Deploy to Vercel
+## ☁️ Vercel Deployment
 
 1. Import the GitHub repository into Vercel.
-2. Select **Next.js** as the framework.
+2. Select **Next.js**.
 3. Add the Cloudinary environment variables.
 4. Deploy.
-5. Test the **Upload → Analyze** workflow.
+5. Test **Upload → Analyze**.
 
-### Required Vercel variables
+### Required variables
 
 | Variable | Required |
 |---|:---:|
@@ -274,22 +267,16 @@ npm start
 
 ## 🎯 Code Cubicle 6.0 Alignment
 
-### Problem
+ImpactLens addresses the Cloudinary challenge through:
 
-Organizations working on sustainability, infrastructure, community development, and environmental projects generate huge volumes of visual evidence that can be difficult to organize and interpret.
-
-### Our Solution
-
-ImpactLens AI provides a unified media intelligence workflow for:
-
-- Large image/video collections
+- Large image/video collection analysis
 - Project and activity identification
 - Location and timeline organization
 - AI-powered metadata
 - Semantic media discovery
 - Before/after comparison
 - Visual impact reporting
-- Evidence traceability
+- Original-asset traceability
 
 ### Expected Outcome
 
@@ -307,59 +294,40 @@ Compelling Impact Stories
 
 ---
 
-## 🧪 Demo Workflow
+## 🧪 Recommended Demo
 
-A recommended hackathon demonstration:
+**01 — Dashboard** → Show the impact overview.
 
-### 01 — Dashboard
-Show the centralized impact overview.
+**02 — Upload** → Upload field evidence.
 
-### 02 — Upload
-Upload a field image/video.
+**03 — Cloudinary** → Show the asset being stored.
 
-### 03 — Cloudinary
-Show the asset being stored and processed.
+**04 — AI Analysis** → Display generated analysis and metadata.
 
-### 04 — AI Analysis
-Display generated analysis and metadata.
+**05 — Search** → Search for a visual concept.
 
-### 05 — Search
-Search for a visual concept or project activity.
+**06 — Before / After** → Compare project stages.
 
-### 06 — Before / After
-Compare two project stages.
+**07 — Impact Report** → Present an evidence-backed summary.
 
-### 07 — Impact Report
-Generate a concise evidence-backed project summary.
-
-### 08 — Traceability
-Show how the insight connects back to the original asset.
+**08 — Traceability** → Connect the insight to the original asset.
 
 ---
 
 ## 🌍 Example Use Cases
 
-### 🌳 Environmental Restoration
-Track vegetation, cleanup activities, restoration progress, and site changes.
-
-### 🏗️ Infrastructure Programs
-Document construction progress and compare project stages.
-
-### 💧 Water & Sanitation
-Organize evidence from water access, sanitation, and community infrastructure projects.
-
-### 🏘️ Community Development
-Turn field documentation into searchable project evidence.
-
-### 🏛️ Government Programs
-Create structured visual evidence for public-sector initiatives.
-
-### 🤝 NGO Impact Reporting
-Convert thousands of field assets into campaign-ready impact stories.
+| Domain | Example |
+|---|---|
+| 🌳 Environmental Restoration | Track vegetation and restoration progress |
+| 🏗️ Infrastructure | Document construction and project stages |
+| 💧 Water & Sanitation | Organize field evidence |
+| 🏘️ Community Development | Structure community-project media |
+| 🏛️ Government Programs | Build visual evidence for initiatives |
+| 🤝 NGO Reporting | Convert field media into impact stories |
 
 ---
 
-## 🔮 Future Roadmap
+## 🔮 Roadmap
 
 - [ ] PostgreSQL + Prisma persistence
 - [ ] Multi-tenant organizations
@@ -372,7 +340,7 @@ Convert thousands of field assets into campaign-ready impact stories.
 - [ ] PDF impact-report generation
 - [ ] Campaign/social-media content generation
 - [ ] Batch media processing
-- [ ] Advanced analytics and impact KPIs
+- [ ] Advanced impact KPIs
 
 ---
 
@@ -407,8 +375,6 @@ Built for **Code Cubicle 6.0**.
 ## 📄 License
 
 This project is provided for hackathon and educational purposes.
-
----
 
 <div align="center">
 
