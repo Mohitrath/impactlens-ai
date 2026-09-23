@@ -13,7 +13,7 @@ export default async function Dashboard() {
     ["Assets analyzed", String(items.length), live.length ? "live assets" : "demo assets", ImageIcon],
     ["Active projects", String(projects.size), "derived from evidence", FolderKanban],
     ["AI insights", String(insights), "tagged assets", Sparkles],
-    ["Traceability", live.length ? "100%" : "98.7%", live.length ? "Cloudinary asset IDs" : "demo evidence", FileCheck2],
+    ["Traceability", live.length ? "100%" : "—", live.length ? "Cloudinary asset IDs" : "connect Cloudinary", FileCheck2],
   ] as const;
 
   return (
@@ -61,7 +61,7 @@ export default async function Dashboard() {
               style={{ textDecoration: "none", color: "inherit", display: "block" }}
             >
               <div className="mediaThumb">
-                <img src={m.src} alt={m.title} />
+                {m.resource_type==="video"?<video src={m.src} muted playsInline preload="metadata" style={{width:"100%",height:"100%",objectFit:"cover"}}/>:<img src={m.src} alt={m.title} />}
                 <span className="mediaOverlay">
                   <ArrowUpRight size={18} /> Open evidence
                 </span>
