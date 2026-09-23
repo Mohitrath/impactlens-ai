@@ -9,8 +9,9 @@ const projectMeta: Record<string,{status:string, description:string, assets:numb
   "Green Corridor": {status:"Active", description:"Urban greening and tree-planting evidence across the corridor.", assets:187}
 };
 
-export default function ProjectView({searchParams}:{searchParams:{project?:string}}){
-  const project = searchParams.project ? decodeURIComponent(searchParams.project) : "Impact Project";
+export default async function ProjectView({searchParams}:{searchParams:Promise<{project?:string}>}){
+  const params = await searchParams;
+  const project = params.project ? decodeURIComponent(params.project) : "Impact Project";
   const meta = projectMeta[project] ?? {status:"Active", description:"Impact evidence workspace.", assets:0};
   const assets = media.filter(m => m.project === project);
 
