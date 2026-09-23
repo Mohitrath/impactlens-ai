@@ -1,0 +1,11 @@
+"use client";
+import Link from "next/link";
+import { useState } from "react";
+import { Search, Sparkles, ArrowUpRight, Loader2 } from "lucide-react";
+export default function SearchClient(){
+ const [query,setQuery]=useState("solar projects showing community infrastructure");
+ const [results,setResults]=useState<any[]>([]);
+ const [loading,setLoading]=useState(false); const [searched,setSearched]=useState(false);
+ async function run(){setLoading(true);try{const r=await fetch("/api/search",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({query})});const d=await r.json();setResults(d.results||[]);setSearched(true);}finally{setLoading(false);}}
+ return <><div className="card"><form onSubmit={e=>{e.preventDefault();run()}}><div style={{display:"flex",gap:10}}><input className="search" value={query} onChange={e=>setQuery(e.target.value)} placeholder="Show solar projects near schools..." /><button className="btn primary" disabled={loading}>{loading?<Loader2 className="spin" size={16}/>:<Search size={16}/>}</button></div></form><div className="pillRow"><span className="badge"><Sparkles size={12}/> AI interpreted query</span><span className="muted">{searched?results.length:"Ready to search"} relevant assets</span></div></div><div className="mediaGrid section">{results.map(m=><Link href={`/media/view?id=${encodeURIComponent(m.asset_id)}`} className="card mediaCard" key={m.asset_id} style={{textDecoration:"none",color:"inherit",display:"block"}}><div className="mediaThumb"><img src={m.src} alt={m.title}/><span className="mediaOverlay"><ArrowUpRight size={18}/> Open evidence</span></div><div className="mediaInfo"><span className="badge">{m.score}% semantic match</span><h3 style={{marginTop:10}}>{m.title}</h3><p className="muted">{m.project} · {m.location}</p><div className="pillRow">{(m.tags||[]).map((t:string)=><span className="badge" key={t}>{t}</span>)}</div></div></Link>)}</div>{searched&&!results.length&&<div className="card section emptyState"><h3>No matching live evidence</h3><p className="muted">Try project, location, activity, tag, or filename terms.</p></div>}</>;
+}
