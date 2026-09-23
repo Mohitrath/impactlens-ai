@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowLeft, CalendarDays, MapPin, Tag, ExternalLink, FileImage, Database } from "lucide-react";
 import { getCloudinaryAsset } from "@/lib/cloudinary-data";
+import EvidenceAsk from "@/components/evidence-ask";
 
 export default async function MediaView({searchParams}:{searchParams:Promise<{id?:string}>}) {
   const params = await searchParams;
