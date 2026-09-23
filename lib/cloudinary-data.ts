@@ -110,8 +110,8 @@ export async function getCloudinaryAsset(assetId: string): Promise<ImpactMedia|n
   return resource ? normalize(resource) : null;
 }
 
-export async function searchCloudinaryMedia(query: string): Promise<ImpactMedia[]> {
-  const all = await getCloudinaryMedia(500);
+export async function visualSearchCloudinaryMedia(query: string): Promise<ImpactMedia[]> {\n  if (!cloudinaryConfigured() || !query.trim()) return [];\n  try {\n    const data = await admin(`/resources/visual_search?text=${encodeURIComponent(query)}&max_results=30`);\n    return (data?.resources || []).map(normalize);\n  } catch { return []; }\n}\n\nexport async function searchCloudinaryMedia(query: string): Promise<ImpactMedia[]> {
+  const visual = await visualSearchCloudinaryMedia(query);\n  if (visual.length) return visual;\n  const all = await getCloudinaryMedia(500);
   const terms = query.toLowerCase().split(/\\s+/).filter(Boolean);
   if (!terms.length) return all.slice(0,30);
   return all
