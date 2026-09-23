@@ -22,7 +22,7 @@ export default function Projects(){
     <div className="grid3">
       {projects.map(p => (
         <Link
-          href={`/projects/${encodeURIComponent(p[0])}`}
+          href={`/projects/view?project=${encodeURIComponent(p[0])}`}
           className="card projectCard"
           key={p[0]}
           style={{textDecoration:"none",color:"inherit",display:"block"}}
